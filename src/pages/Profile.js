@@ -14,11 +14,11 @@ function Profile() {
     let history = useHistory();
 
     useEffect(() => {
-        axios.get (`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
+        axios.get (`https://first-website-swerra.herokuapp.com/auth/basicinfo/${id}`).then((response) => {
             setUsername(response.data.username);
         });
 
-        axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
+        axios.get(`https://first-website-swerra.herokuapp.com/posts/byuserId/${id}`).then((response) => {
         setListOfPosts(response.data);
     })
     }, [])

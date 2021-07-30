@@ -10,7 +10,7 @@ function ChangePassword() {
 
     const changePassword = () => {
         //VIENE INSERITO /AUTH PERCHÈ LA RICHIESTA AXIOS SI TROVA ALL'INTERNO DELLA ROUTE USERS
-        axios.put ("http://localhost:3001/auth/changepassword", {
+        axios.put ("https://first-website-swerra.herokuapp.com/auth/changepassword", {
             oldPassword: oldPassword, newPassword: newPassword
         }, {headers: {
             accessToken:localStorage.getItem("accessToken")

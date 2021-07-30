@@ -13,17 +13,17 @@ function Post() {
     let history = useHistory();
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+        axios.get(`https://first-website-swerra.herokuapp.com/posts/byId/${id}`).then((response) => {
             setPostObject(response.data);
       });
      
-            axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+            axios.get(`https://first-website-swerra.herokuapp.com/comments/${id}`).then((response) => {
             setComments(response.data);
         });
     }, []);
 
     const addComment = () => {
-        axios.post("http://localhost:3001/comments", {commentBody: newComment, PostId: id},
+        axios.post("https://first-website-swerra.herokuapp.com/comments", {commentBody: newComment, PostId: id},
         {//HEADER DEVE AVERE LO STESSO NOME CHE C'È NEL MIDDLEWARE ALL'INTERNO DI REQ.HEADER
             headers: {
                 //È BENE USARE LA LOCAL STORAGE IN MODO TALE DA POTER PERMETTERE UN ACCESSO PERSISTENTE
@@ -43,7 +43,7 @@ function Post() {
 
     const deleteComment = (id) => {
 
-        axios.delete(`http://localhost:3001/comments/${id}`, {
+        axios.delete(`https://first-website-swerra.herokuapp.com/comments/${id}`, {
             headers: {
                 accessToken:localStorage.getItem("accessToken")
             },
@@ -57,7 +57,7 @@ function Post() {
 
     //IMPORTANTE PASSARE COME PARAMETRO L'ACCESS TOKEN ALTRIMENTI È COME SE L'UTENTE NON FOSSE LOGGATO
     const deletePost = (id) => {
-        axios.delete(`http://localhost:3001/posts/${id}`, {
+        axios.delete(`https://first-website-swerra.herokuapp.com/posts/${id}`, {
             headers: {
                 accessToken:localStorage.getItem("accessToken")
             },
@@ -70,7 +70,7 @@ function Post() {
         if (option === "title") {
             let newTitle = prompt("Enter a new Title:");//DOPO LO SLASH VIENE MESSO /TITLE IN QUANTO NEL BACKEND
                                                         //È CHIAMATO IN QUESTO MODO
-            axios.put("http://localhost:3001/posts/title", {newTitle: newTitle, id: id,}, {headers: {
+            axios.put("https://first-website-swerra.herokuapp.com/posts/title", {newTitle: newTitle, id: id,}, {headers: {
                 accessToken: localStorage.getItem("accessToken")
             }})
 
@@ -81,7 +81,7 @@ function Post() {
             //MODIFICA CORPO
             let newPostText = prompt("Enter a New Text:");
             //LA VARIABILE È NEWTEXT POICHÈ NELLA ROUTE ABBIAMO CHIAMATO COSÌ LA NOSTRA VARIABILE
-            axios.put("http://localhost:3001/posts/postText", {newText: newPostText, id: id}, {headers: {
+            axios.put("https://first-website-swerra.herokuapp.com/posts/postText", {newText: newPostText, id: id}, {headers: {
                 accessToken:localStorage.getItem("accessToken")
             }})
 

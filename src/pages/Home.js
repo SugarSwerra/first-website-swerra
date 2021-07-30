@@ -19,7 +19,7 @@ function Home() {
     if (!localStorage.getItem("accessToken")) {
       history.push("/login");
     } else {
-    axios.get("http://localhost:3001/posts", {headers:
+    axios.get("https://first-website-swerra.herokuapp.com/posts", {headers:
     {accessToken: localStorage.getItem("accessToken")}
   }).then((response) => {
       setListOfPosts(response.data.listOfPosts);
@@ -32,7 +32,7 @@ function Home() {
   }, []);
 
   const likeAPost = (postId) => {
-    axios.post("http://localhost:3001/likes", {PostId: postId}, {headers:
+    axios.post("https://first-website-swerra.herokuapp.com/likes", {PostId: postId}, {headers:
     {accessToken: localStorage.getItem("accessToken")}
   }).then((response) => {
     setListOfPosts(listOfPosts.map((post) => {

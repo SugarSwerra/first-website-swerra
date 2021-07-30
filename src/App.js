@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/auth/auth", {
+      .get("https://first-website-swerra.herokuapp.com/auth/auth", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },

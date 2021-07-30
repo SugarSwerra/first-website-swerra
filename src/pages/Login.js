@@ -12,7 +12,7 @@ function Login() {
 
     const login = () => {
         const data = {username: username, password: password};
-        axios.post("http://localhost:3001/auth/login", data).then((response) => {
+        axios.post("https://first-website-swerra.herokuapp.com/auth/login", data).then((response) => {
             //NEL CASO IN CUI SI VERIFICA UN ERRORE VERRÀ GENERATO UN ALERT
             if (response.data.error){
                 alert(response.data.error);
